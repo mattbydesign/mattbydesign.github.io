@@ -160,7 +160,7 @@
         /* Grid Section */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin: 3rem 0;
         }
@@ -201,6 +201,12 @@
             color: rgba(0, 0, 0, 0.08);
             position: relative;
             overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .project-content {
@@ -470,7 +476,7 @@
         <h2 class="section-title">Tracks</h2>
         <div class="project-grid">
             <div class="project-card">
-                <div class="project-image">🏁</div>
+                <div class="project-image"><img src="../images/motorsports/26_sonoma-1.png" alt="Sonoma Raceway"></div>
                 <div class="project-content">
                     <h3 class="project-title">Sonoma Raceway</h3>
                     <p class="project-subtitle">California</p>
@@ -481,7 +487,7 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-image">🏁</div>
+                <div class="project-image"><img src="../images/motorsports/26_buttonwillow.png" alt="Buttonwillow Raceway"></div>
                 <div class="project-content">
                     <h3 class="project-title">Buttonwillow Raceway</h3>
                     <p class="project-subtitle">California</p>
@@ -492,7 +498,7 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-image">🏁</div>
+                <div class="project-image"><img src="../images/motorsports/26_Thunderhill-Track-3-Mile-CCW.png" alt="Thunderhill Raceway"></div>
                 <div class="project-content">
                     <h3 class="project-title">Thunderhill Raceway</h3>
                     <p class="project-subtitle">California</p>
