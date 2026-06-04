@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photography — mattbydesign</title>
+    <title>Travel & Culture — mattbydesign</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -120,7 +120,7 @@
         }
 
         .content-section {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 4rem 2rem;
         }
@@ -152,36 +152,57 @@
             font-weight: 600;
         }
 
-        .photo-grid {
+        .journey-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
             margin: 3rem 0;
         }
 
-        .photo-card {
-            background: linear-gradient(135deg, #e8e6e1 0%, #d8d6d1 100%);
-            aspect-ratio: 4/3;
+        .journey-card {
+            background: var(--cream);
             border: 3px solid var(--charcoal);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: rgba(0, 0, 0, 0.08);
-            font-weight: 700;
+            padding: 2rem;
+            position: relative;
             transition: all 0.3s ease;
-            overflow: hidden;
         }
 
-        .photo-card:hover {
+        .journey-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--burnt-orange);
+        }
+
+        .journey-card:hover {
             border-color: var(--burnt-orange);
             transform: translateY(-4px);
         }
 
-        .photo-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .journey-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--charcoal);
+        }
+
+        .journey-location {
+            font-size: 0.85rem;
+            color: var(--burnt-orange);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .journey-description {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--charcoal);
         }
 
         footer {
@@ -275,7 +296,7 @@
                 gap: 2rem;
             }
 
-            .photo-grid {
+            .journey-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -293,38 +314,51 @@
     <section class="page-header">
         <div class="header-content">
             <div class="header-label">Interest</div>
-            <h1 class="page-title">Photography</h1>
+            <h1 class="page-title">Travel & Culture</h1>
             <p class="page-subtitle">
-                Documenting design, capturing moments, and building a visual library of inspiration.
+                Exploring design cultures, industrial sites, and the stories behind iconic creations worldwide.
             </p>
         </div>
     </section>
 
     <section class="content-section">
-        <h2 class="section-title">Visual Storytelling</h2>
+        <h2 class="section-title">Wandering & Learning</h2>
         <div class="prose">
             <p>
-                Placeholder for your photography introduction. Talk about what draws you to photography, 
-                your approach to visual documentation, and what you're working on.
+                Placeholder for your travel introduction. Talk about what draws you to travel, 
+                specific destinations you're interested in, and what you're exploring.
             </p>
         </div>
 
-        <h2 class="section-title">Recent Work</h2>
-        <div class="photo-grid">
-            <div class="photo-card">01</div>
-            <div class="photo-card">02</div>
-            <div class="photo-card">03</div>
-            <div class="photo-card">04</div>
-            <div class="photo-card">05</div>
-            <div class="photo-card">06</div>
-            <div class="photo-card">07</div>
-            <div class="photo-card">08</div>
+        <h2 class="section-title">Destinations & Journeys</h2>
+        <div class="journey-grid">
+            <div class="journey-card">
+                <h3 class="journey-title">Location</h3>
+                <p class="journey-location">Country or Region</p>
+                <p class="journey-description">
+                    Add your travel stories, experiences, and what you learned from visiting this place.
+                </p>
+            </div>
+            <div class="journey-card">
+                <h3 class="journey-title">Location</h3>
+                <p class="journey-location">Country or Region</p>
+                <p class="journey-description">
+                    Add your travel stories, experiences, and what you learned from visiting this place.
+                </p>
+            </div>
+            <div class="journey-card">
+                <h3 class="journey-title">Location</h3>
+                <p class="journey-location">Country or Region</p>
+                <p class="journey-description">
+                    Add your travel stories, experiences, and what you learned from visiting this place.
+                </p>
+            </div>
         </div>
 
         <div class="prose">
             <p>
-                Add your photos here. Each card is ready for your images. 
-                You can also add captions or context for series of work.
+                Duplicate the journey cards above as needed. Add photos, maps, and detailed narratives 
+                of your travels and discoveries.
             </p>
         </div>
     </section>
@@ -332,10 +366,9 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Photography</h3>
+                <h3>Travel & Culture</h3>
                 <p>
-                    Visual documentation of design, travel, and moments that catch the eye. 
-                    Building an ongoing visual library.
+                    Documenting journeys, design discoveries, and cultural observations from around the world.
                 </p>
             </div>
             <div class="footer-section">

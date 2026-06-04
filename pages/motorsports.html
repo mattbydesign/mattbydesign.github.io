@@ -6,18 +6,15 @@
     <title>Motorsports — mattbydesign</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --petrol: #0f4f4f;
-            --teal: #1a6b6b;
-            --burnt-orange: #d97f3e;
-            --gold: #c9a961;
-            --racing-red: #e31937;
-            --cream: #faf8f3;
-            --dark: #1a1a1a;
-            --gray: #666666;
-            --light-gray: #e8e8e8;
+            --cream: #f5f1e8;
+            --burnt-orange: #c84e00;
+            --forest-green: #2d5016;
+            --mustard: #d4af37;
+            --rust: #8b4513;
+            --charcoal: #2a2a2a;
         }
 
         * {
@@ -33,8 +30,8 @@
         body {
             font-family: 'IBM Plex Sans', sans-serif;
             background: var(--cream);
-            color: var(--dark);
-            line-height: 1.6;
+            color: var(--charcoal);
+            line-height: 1.7;
         }
 
         /* Header */
@@ -45,276 +42,304 @@
             right: 0;
             z-index: 1000;
             background: var(--cream);
-            border-bottom: 2px solid var(--burnt-orange);
-            backdrop-filter: blur(8px);
+            border-bottom: 3px solid var(--burnt-orange);
+            padding: 1.5rem 2rem;
         }
 
         nav {
             max-width: 1600px;
             margin: 0 auto;
-            padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 400;
-            letter-spacing: 0.15em;
-            color: var(--dark);
+            font-family: 'Space Mono', monospace;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: var(--burnt-orange);
             text-transform: uppercase;
         }
 
-        .logo a {
-            text-decoration: none;
-            color: var(--dark);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-family: 'IBM Plex Mono', monospace;
+        .back-link {
+            font-family: 'Space Mono', monospace;
             font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--gray);
+            font-weight: 400;
+            color: var(--charcoal);
             text-decoration: none;
             letter-spacing: 0.05em;
             text-transform: uppercase;
-            transition: all 0.3s ease;
-            position: relative;
-            padding-bottom: 4px;
+            transition: color 0.3s ease;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--burnt-orange);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
+        .back-link:hover {
             color: var(--burnt-orange);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero */
-        .hero {
-            min-height: 70vh;
+        /* Page Header */
+        .page-header {
+            min-height: 60vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 8rem 2rem 4rem;
-            position: relative;
-            border-bottom: 3px solid var(--burnt-orange);
+            background: linear-gradient(135deg, var(--cream) 0%, rgba(200, 78, 0, 0.04) 100%);
+            text-align: center;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(217, 127, 62, 0.12) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-content {
+        .header-content {
             max-width: 900px;
-            position: relative;
-            z-index: 1;
             opacity: 0;
             animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
         }
 
-        .hero-label {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--burnt-orange);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            font-weight: 400;
-            letter-spacing: 0.05em;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-            text-transform: uppercase;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--gray);
-            max-width: 700px;
-        }
-
-        /* Section */
-        .section {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 6rem 2rem;
-            position: relative;
-        }
-
-        .section-label {
-            font-family: 'IBM Plex Mono', monospace;
+        .header-label {
+            font-family: 'Space Mono', monospace;
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--burnt-orange);
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 400;
-            letter-spacing: 0.05em;
-            margin-bottom: 2rem;
-            color: var(--dark);
-            text-transform: uppercase;
-        }
-
-        .prose {
-            max-width: 900px;
-            margin-bottom: 3rem;
-        }
-
-        .prose p {
-            font-size: 1rem;
-            line-height: 1.9;
-            color: var(--dark);
             margin-bottom: 1.5rem;
         }
 
-        .prose h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 400;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: var(--dark);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+        .page-title {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
         }
 
-        /* Stats Section */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+        .page-subtitle {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--charcoal);
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        .stat-box {
-            background: var(--cream);
-            border: 2px solid var(--petrol);
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
+        /* Content Section */
+        .content-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
         }
 
-        .stat-box:hover {
-            border-color: var(--burnt-orange);
-            transform: translateY(-4px);
+        .section-title {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-bottom: 2rem;
+            color: var(--charcoal);
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--burnt-orange);
         }
 
-        .stat-number {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3rem;
-            font-weight: 400;
-            letter-spacing: 0.05em;
+        .prose {
+            font-size: 1rem;
+            line-height: 1.9;
+            color: var(--charcoal);
+            margin-bottom: 2rem;
+        }
+
+        .prose p {
+            margin-bottom: 1.5rem;
+        }
+
+        .prose strong {
             color: var(--burnt-orange);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-        }
-
-        .stat-label {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.85rem;
             font-weight: 600;
-            color: var(--dark);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
 
-        /* Gallery Placeholder */
-        .gallery-grid {
+        /* Grid Section */
+        .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
             margin: 3rem 0;
         }
 
-        .gallery-item {
+        .project-card {
+            background: var(--cream);
+            border: 3px solid var(--charcoal);
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--burnt-orange);
+        }
+
+        .project-card:hover {
+            border-color: var(--burnt-orange);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(200, 78, 0, 0.15);
+        }
+
+        .project-image {
+            width: 100%;
             aspect-ratio: 4/3;
-            background: linear-gradient(135deg, #e8dcc8 0%, #d8ccb8 100%);
-            border: 2px solid var(--petrol);
+            background: linear-gradient(135deg, #e8e6e1 0%, #d8d6d1 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            color: rgba(15, 79, 79, 0.1);
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--charcoal);
+        }
+
+        .project-subtitle {
+            font-size: 0.85rem;
+            color: var(--burnt-orange);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--charcoal);
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-box {
+            background: var(--cream);
+            border: 3px solid var(--burnt-orange);
+            padding: 2rem;
+            text-align: center;
             transition: all 0.3s ease;
         }
 
-        .gallery-item:hover {
-            border-color: var(--burnt-orange);
+        .stat-box:hover {
             transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(200, 78, 0, 0.15);
+        }
+
+        .stat-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--burnt-orange);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--charcoal);
+        }
+
+        /* CTA */
+        .cta-button {
+            display: inline-block;
+            padding: 0.95rem 2.25rem;
+            background: var(--burnt-orange);
+            color: var(--cream);
+            text-decoration: none;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 3px solid var(--burnt-orange);
+            position: relative;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--mustard);
+            transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        .cta-button:hover {
+            border-color: var(--mustard);
+            color: var(--charcoal);
         }
 
         /* Footer */
         footer {
-            background: var(--dark);
+            background: var(--charcoal);
             color: var(--cream);
-            padding: 4rem 2rem 2rem;
+            padding: 3rem 2rem 1.5rem;
             border-top: 3px solid var(--burnt-orange);
-            margin-top: 6rem;
+            margin-top: 4rem;
         }
 
         .footer-content {
             max-width: 1600px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr;
             gap: 3rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .footer-section h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1rem;
-            font-weight: 400;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--mustard);
         }
 
         .footer-section p {
-            color: rgba(250, 248, 243, 0.7);
-            font-size: 0.95rem;
+            color: rgba(245, 241, 232, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.7;
         }
 
         .footer-links {
@@ -322,30 +347,31 @@
         }
 
         .footer-links li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
 
         .footer-links a {
-            color: rgba(250, 248, 243, 0.7);
+            color: rgba(245, 241, 232, 0.7);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: var(--burnt-orange);
+            color: var(--mustard);
         }
 
         .footer-bottom {
             max-width: 1600px;
             margin: 0 auto;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(250, 248, 243, 0.1);
+            padding-top: 1rem;
+            border-top: 1px solid rgba(245, 241, 232, 0.1);
             text-align: center;
-            color: rgba(250, 248, 243, 0.4);
-            font-size: 0.85rem;
+            color: rgba(245, 241, 232, 0.4);
+            font-size: 0.75rem;
         }
 
+        /* Animations */
         @keyframes fadeInUp {
             from {
                 transform: translateY(30px);
@@ -358,22 +384,16 @@
         }
 
         @media (max-width: 768px) {
-            nav {
+            header {
                 padding: 1rem 1.5rem;
-                flex-direction: column;
-                gap: 1rem;
             }
 
-            .nav-links {
-                gap: 1.5rem;
-            }
-
-            .hero {
+            .page-header {
                 padding: 6rem 1.5rem 3rem;
             }
 
-            .section {
-                padding: 4rem 1.5rem;
+            .content-section {
+                padding: 3rem 1.5rem;
             }
 
             .footer-content {
@@ -386,101 +406,168 @@
 <body>
     <header>
         <nav>
-            <div class="logo"><a href="index.html">mattbydesign</a></div>
-            <ul class="nav-links">
-                <li><a href="index.html#work">Work</a></li>
-                <li><a href="index.html#interests">Interests</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
+            <a href="../index.html" class="back-link">← Back</a>
+            <div class="logo">mattbydesign</div>
+            <div style="width: 150px;"></div>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-label">Grassroots Racing</div>
-            <h1>24 Hours of Lemons</h1>
-            <p>
-                Pushing budget-built cars through 24-hour endurance racing events. 
-                Learning systems thinking, reliability engineering, and strategy at racing speeds.
+    <section class="page-header">
+        <div class="header-content">
+            <div class="header-label">Interest</div>
+            <h1 class="page-title">Motorsports</h1>
+            <p class="page-subtitle">
+                24 Hours of Lemons racing. Building, driving, and strategizing across three tracks with a 2001 BMW 530i.
             </p>
         </div>
     </section>
 
-    <section class="section">
-        <div class="section-label">Project Overview</div>
-        <h2 class="section-title">The Practice</h2>
+    <section class="content-section">
+        <h2 class="section-title">The Program</h2>
+        <div class="prose">
+            <p>
+                Since winter 2023, I've been competing in 24 Hours of Lemons—one of the most addictive, 
+                humbling, and rewarding racing series there is. The format is simple: $500 budget ceiling, 
+                vintage cars, and enough time to find out what you're really made of.
+            </p>
+            <p>
+                What started as curiosity turned into something deeper. Racing teaches you things that engineering 
+                textbooks can't: <strong>systems thinking under chaos</strong>, decision-making with incomplete information, 
+                and the weight of real consequences. You learn that strategy beats horsepower, consistency beats ego, 
+                and that a team approach works better than individual heroics.
+            </p>
+        </div>
+
+        <h2 class="section-title">The Car: 2001 BMW 530i</h2>
+        <div class="prose">
+            <p>
+                A Bavarian luxury sedan transformed into a purpose-built race car. The 530i platform has proven itself 
+                capable and reliable over multiple 24-hour endurance events. We've progressively refined the setup, 
+                suspension geometry, and reliability systems to compete at the highest level of our class.
+            </p>
+            <p>
+                <strong>Key Modifications:</strong> Upgraded suspension, braking system optimization, safety systems, 
+                fuel management, and detailed reliability improvements. Every change serves a purpose—removing weight, 
+                improving balance, or increasing durability.
+            </p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Track Locations</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">Class B</div>
+                <div class="stat-label">Winner 2024</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">Class A</div>
+                <div class="stat-label">Currently Competing</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Tracks</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-image">🏁</div>
+                <div class="project-content">
+                    <h3 class="project-title">Sonoma Raceway</h3>
+                    <p class="project-subtitle">California</p>
+                    <p class="project-description">
+                        Technical road course with elevation changes. Demands precision through complex corner sequences 
+                        and rewards good setup work.
+                    </p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">🏁</div>
+                <div class="project-content">
+                    <h3 class="project-title">Buttonwillow Raceway</h3>
+                    <p class="project-subtitle">California</p>
+                    <p class="project-description">
+                        High-speed circuit where we secured Class B victory in 2024. 
+                        Longer straights reward efficiency and reliability.
+                    </p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">🏁</div>
+                <div class="project-content">
+                    <h3 class="project-title">Thunderhill Raceway</h3>
+                    <p class="project-subtitle">California</p>
+                    <p class="project-description">
+                        Tight, flowing layout that emphasizes driver skill and vehicle balance. 
+                        Fast lap times come from smooth inputs.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Roles</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Driver</h3>
+                    <p class="project-description">
+                        High-speed operation across varied conditions. Delivering consistent lap times, managing tire wear, 
+                        and providing technical feedback for continuous setup optimization.
+                    </p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Strategist</h3>
+                    <p class="project-description">
+                        Real-time race decisions, fuel strategy, driver rotations, pit coordination. 
+                        Identifying performance bottlenecks and optimizing for maximum uptime.
+                    </p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Mechanic</h3>
+                    <p class="project-description">
+                        Identifying issues, developing low-cost solutions within class rules, 
+                        managing mechanical reliability through 24-hour endurance events.
+                    </p>
+                </div>
+            </div>
+        </div>
 
         <div class="prose">
             <p>
-                Content coming soon. This page will document the motorsports journey through 24 Hours of Lemons racing—
-                from vehicle selection and build strategy through race execution, pit coordination, and lessons learned.
+                More detailed race reports, technical breakdowns, and documentation from each event coming soon. 
+                Photo galleries and track-specific strategy analysis planned for future updates.
             </p>
-            
-            <h3>What's Being Developed</h3>
-            <p>
-                In-depth race recaps, technical breakdowns of vehicle setup and strategy decisions, 
-                photography and video documentation, and reflections on what grassroots racing teaches about engineering.
-            </p>
-        </div>
-
-        <h2 class="section-title">By The Numbers</h2>
-        <div class="stats-grid">
-            <div class="stat-box">
-                <div class="stat-number">8+</div>
-                <div class="stat-label">Races Competed</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">200+</div>
-                <div class="stat-label">Hours on Track</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">2023—</div>
-                <div class="stat-label">Active Since Winter 2023</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2 class="section-title">Gallery</h2>
-        <p style="margin-bottom: 2rem; color: var(--gray);">
-            Race photos, vehicle builds, and documentation coming soon.
-        </p>
-        <div class="gallery-grid">
-            <div class="gallery-item"></div>
-            <div class="gallery-item"></div>
-            <div class="gallery-item"></div>
-            <div class="gallery-item"></div>
-            <div class="gallery-item"></div>
-            <div class="gallery-item"></div>
         </div>
     </section>
 
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>About This Project</h3>
+                <h3>Motorsports</h3>
                 <p>
-                    Detailed documentation of 24 Hours of Lemons racing experience, vehicle builds, 
-                    and technical strategy. More content coming as races continue.
+                    Documentation and storytelling from the track. Race reports, technical observations, 
+                    and project updates as the season progresses.
                 </p>
             </div>
             <div class="footer-section">
-                <h3>Related</h3>
+                <h3>Navigate</h3>
                 <ul class="footer-links">
-                    <li><a href="index.html#interests">Back to Interests</a></li>
-                    <li><a href="automotive-systems.html">Automotive Work</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#about">About</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Connect</h3>
+                <h3>Contact</h3>
                 <ul class="footer-links">
                     <li><a href="mailto:hello@mattbydesign.com">Email</a></li>
-                    <li><a href="#">Instagram</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 mattbydesign. Design, words, and work by Matt.</p>
+            <p>&copy; 2026 mattbydesign</p>
         </div>
     </footer>
 </body>
